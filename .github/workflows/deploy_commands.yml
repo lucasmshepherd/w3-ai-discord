@@ -1,0 +1,24 @@
+name: Discord Bot Commands Deployment
+
+on:
+  push:
+    branches: ['main']
+
+env:
+  DISCORD_CLIENT_ID: ${{ secrets.DISCORD_CLIENT_ID }}
+  DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
+
+jobs:
+  deploy_commands:
+    if: github.ref_name == 'main'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+      - run: npm install
+
+      - run: npm run deploy
