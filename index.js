@@ -1,4 +1,4 @@
-// Require the necessary discord.js classes
+const http = require('http');
 const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
@@ -55,3 +55,21 @@ client.on(Events.InteractionCreate, async (interaction) => {
 
 // Log in to Discord with your client's token
 client.login(DISCORD_BOT_TOKEN);
+
+// Setting up PORT
+const PORT = process.env.PORT || 3000;
+
+// Creating http Server
+const httpServer = http.createServer(
+	function (req, res) {
+		res.writeHead(200, {'Content-Type': 'text/plain'});
+		res.write('Server is running!');
+		res.end();
+	}
+);
+
+// Listening to http Server
+// by using listen() method
+httpServer.listen(PORT, () => {
+	console.log("Server is running at port 3000...");
+});
