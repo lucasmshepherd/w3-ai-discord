@@ -3,18 +3,18 @@ const { SlashCommandBuilder, ButtonBuilder, ButtonStyle, ActionRowBuilder } = re
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('ask')
-		.setDescription('Ask anything!'),
+		.setDescription('Ask anything.'),
 	async execute(interaction) {
 		const openApp = new ButtonBuilder()
 			.setLabel('Open App')
-			.setURL('https://rewardz.network')
+			.setURL('https://app.smaug.gold')
 			.setStyle(ButtonStyle.Link);
 
 		const row = new ActionRowBuilder()
 			.addComponents(openApp);
 
 		await interaction.reply({
-			content: 'Puddle Jumper can help you!',
+			content: 'What can I help you with, human?',
 			components: [row],
 		});
 	},
