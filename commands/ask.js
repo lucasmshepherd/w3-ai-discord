@@ -7,6 +7,8 @@ module.exports = {
 		.setDescription('Ask anything.')
 		.addStringOption((option) => option.setName('question').setDescription('The question you want to ask.').setRequired(true)),
 	async execute(interaction) {
+		console.log('Interaction:', interaction);
+
 		const openApp = new ButtonBuilder().setLabel('Open App').setURL('https://app.smaug.gold').setStyle(ButtonStyle.Link);
 
 		const row = new ActionRowBuilder().addComponents(openApp);
