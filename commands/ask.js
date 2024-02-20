@@ -18,6 +18,7 @@ module.exports = {
 		});
 
 		try {
+			console.log(interaction.options);
 			// Extract the question from the interaction options
 			const question = interaction.options.getString('question');
 
@@ -30,7 +31,7 @@ module.exports = {
 			await interaction.followUp(`Received response: ${response.data}`);
 		} catch (error) {
 			// If an error occurs, send an error message to the same channel
-			console.error('Error sending POST request:', error);
+			console.error('Error sending POST request:', error.data);
 			await interaction.followUp('An error occurred while sending the POST request.');
 		}
 	},
