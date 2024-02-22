@@ -32,7 +32,7 @@ module.exports = {
 			await interaction.reply(`Received response: ${response.data}`);
 		} catch (error) {
 			// If an error occurs, send an error message to the same channel
-			console.error('Error sending POST request:', error);
+			console.error('Error sending POST request:', error.response?.data);
 			await interaction.reply('An error occurred while sending the POST request.');
 		}
 	},
