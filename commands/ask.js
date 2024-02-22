@@ -6,7 +6,7 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('ask')
 		.setDescription('Ask anything.')
-		.addStringOption((option) => option.setName('question').setDescription('The question you want to ask.').setRequired(true)),
+		.addStringOption((option) => option.setName('question').setDescription('The question you want to ask.').setRequired(true).addChoices({ name: 'Funny', value: 'gif_funny' }, { name: 'Meme', value: 'gif_meme' }, { name: 'Movie', value: 'gif_movie' })),
 	async execute(interaction) {
 		// const openApp = new ButtonBuilder().setLabel('Open App').setURL('https://app.smaug.gold').setStyle(ButtonStyle.Link);
 
