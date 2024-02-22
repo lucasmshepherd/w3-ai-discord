@@ -7,7 +7,7 @@ module.exports = {
 		.setName('ask')
 		.setDescription('Ask anything.')
 		.addStringOption((option) => option.setName('question').setDescription('The question you want to ask.').setRequired(true)),
-	async execute(interaction) {
+	async execute(interaction, arg2) {
 		// const openApp = new ButtonBuilder().setLabel('Open App').setURL('https://app.smaug.gold').setStyle(ButtonStyle.Link);
 
 		// const row = new ActionRowBuilder().addComponents(openApp);
@@ -21,6 +21,7 @@ module.exports = {
 		try {
 			// Extract the question from the interaction options
 			const question = interaction.options.getString('question');
+			console.log({ interaction, arg2 });
 			console.log({ question });
 
 			// Make a POST request to the specified endpoint with the question in the JSON body
