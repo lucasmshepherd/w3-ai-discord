@@ -1,4 +1,5 @@
-const { SlashCommandBuilder, ButtonBuilder, ButtonStyle, ActionRowBuilder } = require('discord.js');
+// const { SlashCommandBuilder, ButtonBuilder, ButtonStyle, ActionRowBuilder } = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
 const axios = require('axios');
 
 module.exports = {
@@ -7,15 +8,15 @@ module.exports = {
 		.setDescription('Ask anything.')
 		.addStringOption((option) => option.setName('question').setDescription('The question you want to ask.').setRequired(true)),
 	async execute(interaction) {
-		const openApp = new ButtonBuilder().setLabel('Open App').setURL('https://app.smaug.gold').setStyle(ButtonStyle.Link);
+		// const openApp = new ButtonBuilder().setLabel('Open App').setURL('https://app.smaug.gold').setStyle(ButtonStyle.Link);
 
-		const row = new ActionRowBuilder().addComponents(openApp);
+		// const row = new ActionRowBuilder().addComponents(openApp);
 
 		// Send initial message to the user
-		await interaction.reply({
-			content: 'What can I help you with, human?',
-			components: [row],
-		});
+		// await interaction.reply({
+		// 	content: 'What can I help you with, human?',
+		// 	components: [row],
+		// });
 
 		try {
 			console.log(interaction.options);
