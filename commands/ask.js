@@ -20,13 +20,11 @@ module.exports = {
 
 		try {
 			// Extract the question from the interaction options
-			const question = interaction.options.getString('question', true);
+			const question = interaction.options.getString('question') ?? 'What version are you?';
 			console.log({ question });
 
 			// Make a POST request to the specified endpoint with the question in the JSON body
-			const response = await axios.post('https://rayn-ai-4b6d882cd120.herokuapp.com/openai/ask', {
-				question: question,
-			});
+			const response = await axios.post('https://rayn-ai-4b6d882cd120.herokuapp.com/openai/ask', { question });
 
 			// Send the response from the server back to the same channel
 			await interaction.reply(`Received response: ${response.data}`);
